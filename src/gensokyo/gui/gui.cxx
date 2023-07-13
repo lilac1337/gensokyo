@@ -19,6 +19,7 @@ void gensokyo::gui::style() noexcept {
 	new MenuButton(&cheats::options::movement::useSidemoveDir, "sidemove dir", Button);
 	new MenuButton(&cheats::options::movement::antiWall, "antiwall", Button);
 	new MenuButton(&cheats::options::movement::forceLegalYaw, "force legal yaw values", Button);
+	new MenuButton(&cheats::options::movement::onlyOptiUnder, "only optimize understrafes", Button);
 }
 
 void gensokyo::gui::reset() noexcept {

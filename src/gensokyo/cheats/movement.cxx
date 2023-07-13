@@ -44,7 +44,8 @@ void gensokyo::cheats::movement::opti(CInput* _this, const CUserCmd* cmd, float&
 		const float targetMx = std::copysign(smoothedDelta / mYaw->GetFloat(), (options::movement::useSidemoveDir) ? cmd->sidemove : mouseX);
 		const float adjustedMx = mouseX * (1.f - options::movement::optiPercent) + targetMx * options::movement::optiPercent;
 
-		mouseX = (options::movement::forceLegalYaw) ? round(adjustedMx / sensitivity->GetFloat()) * sensitivity->GetFloat() : adjustedMx;
+		if ((mouseX < 0.f && mouseX > targetMx || mouseX > 0.f && mouseX < targetMx) || !options::movement::onlyOptiUnder)
+			mouseX = (options::movement::forceLegalYaw) ? round(adjustedMx / sensitivity->GetFloat()) * sensitivity->GetFloat() : adjustedMx;
 	}
 
 	lastVelLength = velLength;

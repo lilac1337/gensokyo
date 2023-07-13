@@ -9,6 +9,7 @@ namespace gensokyo::cheats::options {
 		inline bool alignedDir = true;
 		inline bool antiWall = true;
 		inline bool forceLegalYaw = true;
+		inline bool onlyOptiUnder = false;
 
 		inline float optiPercent = 0.8f;
 	};
