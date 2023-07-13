@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gensokyo\hooks\hooks.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\SafetyHook\safetyhook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\SafetyHook\Zydis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\util\util.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\util\findpattern.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\sdk.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\game\usercmd.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\vector.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\csgo.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\interfaces\interfaces.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\appframework\iappsystem.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\icvar.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\tier1\iconvar.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\color.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\tier0\basetypes.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\tier1\interface.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\tier0\annotations.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\interfaces\interfaces.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\util\logger.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\gui\gui.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\gui\renderer.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\cheats\options.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\inputsystem\iinputsystem.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\inputsystem\InputEnums.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\inputsystem\ButtonCode.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\inputsystem\AnalogCode.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\common\input_device.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\gui\miku.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\util\netvar.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\util\fnv.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\uncatEntity.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\cheats\cheats.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\cheats\movement.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\engine\cdll_engine_int.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\cdll_int.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gensokyo\cheats\visuals.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\public\const.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="csgo\sdk\game\shared\in_buttons.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\math.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\hooks\hooks.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\SafetyHook\safetyhook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ext\SafetyHook\Zydis.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="framework.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="csgo\interfaces\interfaces.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\util\logger.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\gui\renderer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\gui\gui.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\util\netvar.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\cheats\cheats.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\cheats\movement.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gensokyo\cheats\visuals.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\math.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
