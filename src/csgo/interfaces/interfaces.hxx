@@ -14,6 +14,7 @@ namespace csgo::interfaces {
 	inline IClient* Client = nullptr;
 	inline CEngineClient* Engine = nullptr;
 	inline CPlayerInfoManager* PlayerInfoManger = nullptr;
+	inline IVDebugOverlay* DebugOverlay = nullptr;
 
 	typedef void* (__cdecl* tCreateInterface)(const char* name, int* returnCode);
 

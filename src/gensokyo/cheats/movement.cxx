@@ -29,8 +29,8 @@ void gensokyo::cheats::movement::opti(CInput* _this, const CUserCmd* cmd, float&
 	const bool jumping = (!(flags & FL_ONGROUND) || (buttons & IN_JUMP));
 	const bool aligned = (options::movement::alignedDir) ? ((cmd->sidemove < 0.f && mouseX < 0.f) || (cmd->sidemove > 0.f && mouseX > 0.f)) : true;
 	const bool antiWall = (options::movement::antiWall) ? velLength > 260.f && velLength - lastVelLength >= 0 : true;
-
-	if (jumping && antiWall && aligned) {
+	
+	if (jumping && antiWall && aligned && mouseX && cmd->sidemove) {
 		static ConVar* mYaw = csgo::interfaces::CVar->FindVar("m_yaw");
 		static ConVar* sensitivity = csgo::interfaces::CVar->FindVar("sensitivity");
 

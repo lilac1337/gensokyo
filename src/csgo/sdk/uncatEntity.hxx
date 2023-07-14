@@ -11,8 +11,26 @@ public:
 	NETVAR(m_angEyeAngles, "CCSPlayer->m_angEyeAngles[0]", Vector3<float>)
 	NETVAR(m_lifeState, "CCSPlayer->m_lifeState", int)
 	NETVAR(m_iObserverMode, "CCSPlayer->m_iObserverMode", int)
-	NETVAR(m_iHealth, "CCSPlayer->m_iHealth", int)
+	NETVAR(m_iHealth, "CBasePlayer->m_iHealth", int)
 	NETVAR(m_iPlayerState, "CCSPlayer->m_iPlayerState", int)
+	NETVAR(m_iTeamNum, "CBaseEntity->m_iTeamNum", int)
+	NETVAR(m_vecOrigin, "CBaseEntity->m_vecOrigin", Vector3<float>)
+public:
+	constexpr const Vector3<float>& GetAbsOrigin() noexcept {
+		return gensokyo::util::callVfunc<const Vector3<float>&>(this, 10);
+	}
+
+	constexpr i32 GetHealth() noexcept {
+		return gensokyo::util::callVfunc<i32>(this, 122);
+	}
+
+	constexpr i32 GetIndex() noexcept {
+		return gensokyo::util::callVfunc<i32>(this + 0x8, 10);
+	}
+
+	constexpr bool SetupBones(Matrix3x4* out, i32 max, i32 mask, float currentTime) noexcept {
+		return gensokyo::util::callVfunc<bool>(this + 0x4, 13, out, max, mask, currentTime);
+	}
 };
 
 class IEntityList {

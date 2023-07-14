@@ -43,6 +43,7 @@ struct text {
 	std::string textText;
 	Vector2<u16> textPos;
 	D3DCOLOR textColor;
+	i32 flags = 0;
 };
 
 namespace gensokyo::gui::renderer {
@@ -58,8 +59,8 @@ namespace gensokyo::gui::renderer {
 	inline int menuImageWidth{};
 	inline int menuImageHeight{};
 
-	inline std::unordered_map <std::string, std::vector<vertex>> vertices;
-	inline std::unordered_map <std::string, std::vector<std::size_t>> indices;
+	inline std::vector<vertex> vertices;
+	inline std::vector<std::size_t> indices;
 
 	inline std::vector<text> texts;
 	inline std::vector<ImageTexture*> images;
@@ -69,9 +70,9 @@ namespace gensokyo::gui::renderer {
 
 	inline u8 filledSquareCount{};
 
-	void drawText(std::string_view text, u16 x, u16 y, u16 width, u16 height, ID3DXFont* font, D3DCOLOR color) noexcept;
-	void drawRectangleFilled(const Vector2<float>& pos, const Vector2<float>& size, const D3DCOLOR color, const std::string& key) noexcept;
-	void drawRectangleBordered(const Vector2<float>& pos, const Vector2<float>& size, const float thickness, const D3DCOLOR color, const std::string& key) noexcept;
+	void drawText(std::string_view text, u16 x, u16 y, u16 width, u16 height, ID3DXFont* font, D3DCOLOR color, i32 flags = 0) noexcept;
+	void drawRectangleFilled(const Vector2<float>& pos, const Vector2<float>& size, const D3DCOLOR color) noexcept;
+	void drawRectangleBordered(const Vector2<float>& pos, const Vector2<float>& size, const float thickness, const D3DCOLOR color) noexcept;
 
 	__forceinline void setState() noexcept;
 	void renderFrame() noexcept;

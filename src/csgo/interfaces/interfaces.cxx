@@ -22,6 +22,7 @@ namespace csgo::interfaces {
 		EntityList = static_cast<IEntityList*>(GetInterface("client.dll", "VClientEntityList003"));
 		Engine = static_cast<CEngineClient*>(GetInterface("engine.dll", "VEngineClient014"));
 		PlayerInfoManger = static_cast<CPlayerInfoManager*>(GetInterface("server.dll", "PlayerInfoManager002"));
+		DebugOverlay = static_cast<IVDebugOverlay*>(GetInterface("engine.dll", "VDebugOverlay004"));
 
 		//Panel = (IPanel*)GetInterface("vgui2.dll", "VGUI_Panel009");
 		//Surface = (ISurface*)GetInterface("vguimatsurface.dll", "VGUI_Surface031");

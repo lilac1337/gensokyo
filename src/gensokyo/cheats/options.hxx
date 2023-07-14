@@ -16,6 +16,7 @@ namespace gensokyo::cheats::options {
 
 	namespace visuals {
 		inline bool alwaysShowCrosshair = true;
+		inline bool nameTagsEnabled = true;
 		inline bool radarEnabled = false;
 	};
 };

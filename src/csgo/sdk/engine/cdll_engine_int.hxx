@@ -33,7 +33,7 @@ public:
 	void ClientCmd_Unrestricted(const char* szCmdString, bool fromConsoleOrKeybind, int nUserSlot, bool bCheckValidSlot = true);
 	void SetRestrictServerCommands(bool bRestrict);
 	void SetRestrictClientCommands(bool bRestrict);
-	bool GetPlayerInfo(int ent_num, player_info_t* pinfo);
+	bool GetPlayerInfoasdf(int ent_num, player_info_t* pinfo);
 	client_textmessage_t* TextMessageGet(const char* pName);
 	bool Con_IsVisible(void);
 	int GetLocalPlayer(void);
@@ -394,5 +394,10 @@ public:
 
 	virtual bool IsVoiceRecording() const ;
 	virtual void ForceVoiceRecordOn() const ;
-	virtual const char* AliasToCommandString(const char* szAliasName) ;
+	virtual const char* AliasToCommandString(const char* szAliasName);
+
+public:
+	[[nodiscard]] bool GetPlayerInfo(int nEntityIndex, player_info_t* pInfo) noexcept {
+		return gensokyo::util::callVfunc<bool>(this, 8U, nEntityIndex, pInfo);
+	}
 };

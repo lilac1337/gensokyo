@@ -49,24 +49,24 @@ void ImageTexture::Draw() noexcept {
 }
 
 
-void gensokyo::gui::renderer::drawText(std::string_view text, u16 x, u16 y, u16 width, u16 height, ID3DXFont* font, D3DCOLOR color) noexcept {
+void gensokyo::gui::renderer::drawText(std::string_view text, u16 x, u16 y, u16 width, u16 height, ID3DXFont* font, D3DCOLOR color, i32 flags) noexcept {
 	RECT rect = { x, y, x + width, y + height };
 
-	font->DrawTextA(nullptr, text.data(), -1, &rect, DT_NOCLIP, color);
+	font->DrawTextA(nullptr, text.data(), -1, &rect, DT_NOCLIP | flags, color);
 }
 
-void gensokyo::gui::renderer::drawRectangleFilled(const Vector2<float>& pos, const Vector2<float>& size, const D3DCOLOR color, const std::string& key) noexcept {
-	vertices[key].push_back({ pos.x, pos.y, 0.5f, 1.f, color });
-	vertices[key].push_back({ pos.x + size.x, pos.y, 0.5f, 1.f, color });
-	vertices[key].push_back({ pos.x + size.x, pos.y + size.y, 0.5f, 1.f, color });
-	vertices[key].push_back({ pos.x, pos.y + size.y, 0.5f, 1.f, color });
+void gensokyo::gui::renderer::drawRectangleFilled(const Vector2<float>& pos, const Vector2<float>& size, const D3DCOLOR color) noexcept {
+	vertices.push_back({ pos.x, pos.y, 0.5f, 1.f, color });
+	vertices.push_back({ pos.x + size.x, pos.y, 0.5f, 1.f, color });
+	vertices.push_back({ pos.x + size.x, pos.y + size.y, 0.5f, 1.f, color });
+	vertices.push_back({ pos.x, pos.y + size.y, 0.5f, 1.f, color });
 
-	indices[key].push_back(0u + vertCount);
-	indices[key].push_back(1u + vertCount);
-	indices[key].push_back(2u + vertCount);
-	indices[key].push_back(2u + vertCount);
-	indices[key].push_back(3u + vertCount);
-	indices[key].push_back(0u + vertCount);
+	indices.push_back(0u + vertCount);
+	indices.push_back(1u + vertCount);
+	indices.push_back(2u + vertCount);
+	indices.push_back(2u + vertCount);
+	indices.push_back(3u + vertCount);
+	indices.push_back(0u + vertCount);
 
 	vertCount += 4;
 	idxCount += 6;
@@ -76,11 +76,11 @@ void gensokyo::gui::renderer::drawRectangleFilled(const Vector2<float>& pos, con
 	updateBuffers();
 };
 
-void gensokyo::gui::renderer::drawRectangleBordered(const Vector2<float>& pos, const Vector2<float>& size, const float thickness, const D3DCOLOR color, const std::string& key) noexcept {
-	drawRectangleFilled(pos, { size.x, thickness }, color, key);
-	drawRectangleFilled(pos, { thickness, size.y }, color, key);
-	drawRectangleFilled({ pos.x, pos.y + size.y }, { size.x + thickness, thickness }, color, key); // add thickness to size.x here or else there will be a gap in the bottom right
-	drawRectangleFilled({ pos.x + size.x, pos.y }, { thickness, size.y }, color, key);
+void gensokyo::gui::renderer::drawRectangleBordered(const Vector2<float>& pos, const Vector2<float>& size, const float thickness, const D3DCOLOR color) noexcept {
+	drawRectangleFilled(pos, { size.x, thickness }, color);
+	drawRectangleFilled(pos, { thickness, size.y }, color);
+	drawRectangleFilled({ pos.x, pos.y + size.y }, { size.x + thickness, thickness }, color); // add thickness to size.x here or else there will be a gap in the bottom right
+	drawRectangleFilled({ pos.x + size.x, pos.y }, { thickness, size.y }, color);
 }
 
 __forceinline void gensokyo::gui::renderer::setState() noexcept {
@@ -172,7 +172,7 @@ void gensokyo::gui::renderer::renderFrame() noexcept {
 
 	// render text
 	for (const auto& text : texts)
-		drawText(text.textText, text.textPos.x, text.textPos.y, 100, 14, timesNewRoman, text.textColor);
+		drawText(text.textText, text.textPos.x, text.textPos.y, 100, 14, timesNewRoman, text.textColor, text.flags);
 
 	for (const auto& image : images)
 		image->Draw();
@@ -190,12 +190,10 @@ void gensokyo::gui::renderer::updateBuffers() noexcept {
 	std::vector<u16> newIndexBuffer{};
 
 	// grab all vertices and indices from the maps
-	for (const auto& kv : vertices)
-		for (const auto& vtx : kv.second)
-			newVertexBuffer.push_back(vtx);
+	for (const auto& vtx : vertices)
+		newVertexBuffer.push_back(vtx);
 
-	for (const auto& kv : indices)
-		for (const auto& idx : kv.second)
+	for (const auto& idx : indices)
 			newIndexBuffer.push_back(idx);
 
 	vertCount = newVertexBuffer.size();

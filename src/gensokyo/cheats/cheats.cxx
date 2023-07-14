@@ -7,6 +7,7 @@ void gensokyo::cheats::createMove(CUserCmd* cmd) noexcept {
 	movement::bhop(cmd);
 
 	visuals::alwaysShowCrosshair();
+	visuals::nameTags();
 	visuals::radar();
 }
 

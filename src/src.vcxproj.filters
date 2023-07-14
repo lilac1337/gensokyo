@@ -135,6 +135,12 @@
     <ClInclude Include="math\math.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="csgo\sdk\public\engine\ivdebugoverlay.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matrix.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cxx">

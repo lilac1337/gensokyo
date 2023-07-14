@@ -165,6 +165,7 @@
     <ClInclude Include="csgo\sdk\public\cdll_int.hxx" />
     <ClInclude Include="csgo\sdk\public\color.hxx" />
     <ClInclude Include="csgo\sdk\public\const.hxx" />
+    <ClInclude Include="csgo\sdk\public\engine\ivdebugoverlay.hxx" />
     <ClInclude Include="csgo\sdk\public\icvar.hxx" />
     <ClInclude Include="csgo\sdk\public\inputsystem\AnalogCode.hxx" />
     <ClInclude Include="csgo\sdk\public\inputsystem\ButtonCode.hxx" />
@@ -194,6 +195,7 @@
     <ClInclude Include="gensokyo\util\util.hxx" />
     <ClInclude Include="includes.hxx" />
     <ClInclude Include="math\math.hxx" />
+    <ClInclude Include="math\matrix.hxx" />
     <ClInclude Include="math\vector.hxx" />
   </ItemGroup>
   <ItemGroup>

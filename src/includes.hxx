@@ -62,6 +62,7 @@ typedef std::uintptr_t uptr;
 /* cheat includes */
 #include "gensokyo/cheats/options.hxx"
 #include "math/vector.hxx"
+#include "math/matrix.hxx"
 #include "math/math.hxx"
 #include "gensokyo/util/fnv.hxx"
 #include "gensokyo/util/findpattern.hxx"
@@ -84,6 +85,7 @@ typedef std::uintptr_t uptr;
 #include "csgo/sdk/engine/cdll_engine_int.hxx"
 #include "csgo/sdk/public/const.hxx"
 #include "csgo/sdk/game/shared/in_buttons.hxx"
+#include "csgo/sdk/public/engine/ivdebugoverlay.hxx"
 #include "csgo/interfaces/interfaces.hxx"
 #include "gensokyo/util/netvar.hxx"
 #include "csgo/sdk/uncatEntity.hxx"

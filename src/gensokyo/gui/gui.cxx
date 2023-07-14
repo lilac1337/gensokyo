@@ -9,10 +9,8 @@ MenuButton::MenuButton(void* option, const std::string& name, ObjectType objType
 }
 
 void gensokyo::gui::style() noexcept {
-	new MenuButton(&cheats::options::movement::bhopEnabled, "bhop", Button);
-	new MenuButton(&cheats::options::visuals::radarEnabled, "radar", Button);
-	new MenuButton(&cheats::options::visuals::alwaysShowCrosshair, "always show xhair", Button);
-	new MenuButton(&cheats::options::movement::optiEnabled, "opti", Button);
+	new MenuButton(&cheats::options::movement::bhopEnabled, "autobhop", Button);
+	new MenuButton(&cheats::options::movement::optiEnabled, "strafe opti", Button);
 	new MenuButton(&cheats::options::movement::optiPercent, "opti pwr", Slider);
 	new MenuButton(&cheats::options::movement::alignedDir, "aligned dir", Button);
 	new MenuButton(&cheats::options::movement::useAtan, "use arctan", Button);
@@ -20,6 +18,9 @@ void gensokyo::gui::style() noexcept {
 	new MenuButton(&cheats::options::movement::antiWall, "antiwall", Button);
 	new MenuButton(&cheats::options::movement::forceLegalYaw, "force legal yaw values", Button);
 	new MenuButton(&cheats::options::movement::onlyOptiUnder, "only optimize understrafes", Button);
+	new MenuButton(&cheats::options::visuals::radarEnabled, "radar", Button);
+	new MenuButton(&cheats::options::visuals::alwaysShowCrosshair, "always show xhair", Button);
+	new MenuButton(&cheats::options::visuals::nameTagsEnabled, "nametags", Button);
 }
 
 void gensokyo::gui::reset() noexcept {
@@ -94,8 +95,8 @@ void gensokyo::gui::think() noexcept {
  void gensokyo::gui::drawGui() noexcept {
 	csgo::interfaces::InputSystem->EnableInput(false);
 
-	renderer::drawRectangleFilled(position, size, D3DCOLOR_XRGB(33, 33, 33), "gui");
-	renderer::drawRectangleBordered(position + 10.f, size - 23.f, 3.f, D3DCOLOR_XRGB(75, 173, 176), "gui");
+	renderer::drawRectangleFilled(position, size, D3DCOLOR_XRGB(33, 33, 33));
+	renderer::drawRectangleBordered(position + 10.f, size - 23.f, 3.f, D3DCOLOR_XRGB(75, 173, 176));
 
 	constexpr Vector2<float> buttonPadding = { 1.f, -1.f };
 	constexpr Vector2<float> textPadding = { 5.f, 2.5f };
@@ -109,10 +110,10 @@ void gensokyo::gui::think() noexcept {
 
 		switch (curButton->ObjType) {
 		case Button: {
-			renderer::drawRectangleBordered(buttonPos, buttonSize, 1.f, D3DCOLOR_XRGB(255, 255, 255), std::format("guiButton{}", i));
+			renderer::drawRectangleBordered(buttonPos, buttonSize, 1.f, D3DCOLOR_XRGB(255, 255, 255));
 
 			if (*static_cast<bool*>(curButton->Option))
-				renderer::drawRectangleFilled(buttonPos + buttonPadding.x, buttonSize + buttonPadding.y, D3DCOLOR_XRGB(75, 173, 176), std::format("guiButton{}", i));
+				renderer::drawRectangleFilled(buttonPos + buttonPadding.x, buttonSize + buttonPadding.y, D3DCOLOR_XRGB(75, 173, 176));
 
 			text buttonText = { curButton->Name, { buttonPos.x + buttonSize.x + textPadding.x, buttonPos.y + textPadding.y },  D3DCOLOR_XRGB(255, 255, 255) };
 			renderer::texts.push_back(buttonText);
@@ -120,9 +121,9 @@ void gensokyo::gui::think() noexcept {
 			break;
 		}
 		case Slider: {
-			renderer::drawRectangleBordered(buttonPos, sliderSize, 1.f, D3DCOLOR_XRGB(255, 255, 255), "gui");
+			renderer::drawRectangleBordered(buttonPos, sliderSize, 1.f, D3DCOLOR_XRGB(255, 255, 255));
 
-			renderer::drawRectangleFilled({ buttonPos.x + (85.f * *static_cast<float*>(curButton->Option)) + 1.f, buttonPos.y + 1.f }, {14.f, 14.f}, D3DCOLOR_XRGB(75, 173, 176), "gui");
+			renderer::drawRectangleFilled({ buttonPos.x + (85.f * *static_cast<float*>(curButton->Option)) + 1.f, buttonPos.y + 1.f }, {14.f, 14.f}, D3DCOLOR_XRGB(75, 173, 176));
 
 			text buttonText = { std::format("{} : {:.0f}%", curButton->Name, *static_cast<float*>(curButton->Option) * 100.f), {buttonPos.x + sliderSize.x + 5.f, buttonPos.y + 2.5f},  D3DCOLOR_XRGB(255, 255, 255)};
 			renderer::texts.push_back(buttonText);

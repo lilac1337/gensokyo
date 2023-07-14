@@ -34,6 +34,10 @@ template<class T>
 class Vector3 {
 public:
 	T x, y, z;
+
+    [[nodiscard]] constexpr Vector3 operator+(const Vector3 base) {
+        return { x + base.x, y + base.y, z + base.z };
+    }
 };
 
 template<class T>
